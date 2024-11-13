@@ -5,9 +5,9 @@ import json
 
 # Define parameters for multiple objects
 objects = {
-    "object1": {"axis": (0, 1, 0), "speed": 1, "radius": 1.2, "initial_point": (1, 0, 0)},
-    "object2": {"axis": (0, 1.2, 0), "speed": 1, "radius": 1.2, "initial_point": (1.2, 0, 0)},
-    "object3": {"axis": (1, 0, 0), "speed": 1, "radius": 1.2, "initial_point": (1.5, 0, 0)},
+    "object1": {"axis": (1, 0, 0), "speed": 1, "radius": 1.2, "initial_point": (0, 1.2, 0)},
+    "object2": {"axis": (0, 1, 0), "speed": 1, "radius": 1.2, "initial_point": (1.2, 0, 0)},
+    "object3": {"axis": (0, 0, 1), "speed": 1, "radius": 1.2, "initial_point": (1.2, 0, 0)},
     # Add more objects as needed
 }
 
@@ -43,6 +43,9 @@ async def send_coordinates(websocket):
         for obj_name, params in objects.items():
             axis = params["axis"]
             speed = params["speed"]
+            radius = params["radius"]
+
+            # Scale initial point to radius
             initial_point = params["initial_point"]
 
             # Rotate point based on the current angle
