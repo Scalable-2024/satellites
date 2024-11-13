@@ -1,4 +1,12 @@
 .vscode/
 satellite_env/
+/.vscode
 
 
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+.idea/
+.vscode/
+.venv/
