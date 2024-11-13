@@ -52,7 +52,7 @@ class SphereVisualizer:
             # Add a new point if it doesn't exist
             if key not in self.points:
                 self.points[key], = self.ax.plot(
-                    [x], [y], [z], marker='o', markersize=10, label=key)
+                    [x], [y], [z], marker='o', markersize=3, label=key)
             else:
                 # Update the existing point
                 self.points[key].set_data([x], [y])
