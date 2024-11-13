@@ -18,4 +18,4 @@ python3 ./src/satellites/rotating_satellite_websocket.py
 python3 ./src/satellites/real_time_satellite_visualization.py
 
 #to run the server to get the latest position
-python3 ./src/server/flask_server.py
+python3 ./src/server/flask_server.py --websocket-uri ws://localhost:8765 --http-port 5000
