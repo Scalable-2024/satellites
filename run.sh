@@ -22,4 +22,4 @@ python3 ./src/server/flask_server.py --websocket-uri ws://localhost:8765 --http-
 
 
 #to do ML prediction
-python3 ./src/ML/k-means_cluster.py
+python3 ./src/ML/k-means_cluster.py --clusters 2
