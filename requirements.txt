@@ -2,3 +2,6 @@ matplotlib
 numpy
 websockets
 flask
+flask-cors
+scikit-learn
+pandas

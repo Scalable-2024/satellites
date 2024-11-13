@@ -19,3 +19,7 @@ python3 ./src/satellites/real_time_satellite_visualization.py
 
 #to run the server to get the latest position
 python3 ./src/server/flask_server.py --websocket-uri ws://localhost:8765 --http-port 5000
+
+
+#to do ML prediction
+python3 ./src/ML/k-means_cluster.py
