@@ -8,6 +8,12 @@ objects = {
     "object1": {"axis": (1, 0, 0), "speed": 1, "radius": 1.2, "initial_point": (0, 1.2, 0)},
     "object2": {"axis": (0, 1, 0), "speed": 1, "radius": 1.2, "initial_point": (1.2, 0, 0)},
     "object3": {"axis": (0, 0, 1), "speed": 1, "radius": 1.2, "initial_point": (1.2, 0, 0)},
+    "object4": {"axis": (1, 0, 0), "speed": 1, "radius": 1.2, "initial_point": (0, 1.4, 0)},
+    "object5": {"axis": (0, 1, 0), "speed": 1, "radius": 1.2, "initial_point": (1.4, 0, 0)},
+    "object6": {"axis": (0, 0, 1), "speed": 1, "radius": 1.2, "initial_point": (1.4, 0, 0)},
+    "object7": {"axis": (1, 0, 0), "speed": 1, "radius": 1.2, "initial_point": (0, 1.6, 0)},
+    "object8": {"axis": (0, 1, 0), "speed": 1, "radius": 1.2, "initial_point": (1.6, 0, 0)},
+    "object9": {"axis": (0, 0, 1), "speed": 1, "radius": 1.2, "initial_point": (1.6, 0, 0)},
     # Add more objects as needed
 }
 
