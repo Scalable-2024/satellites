@@ -22,15 +22,11 @@ class SphereVisualizer:
         self.ax.plot_surface(x, y, z, color='blue', alpha=0.1)
         self.ax.plot_wireframe(x, y, z, color='blue', alpha=0.2)
 
-        # Initial point
-        self.point, = self.ax.plot(
-            [1], [0], [0], marker='o', color='red', markersize=10, label='Satellite')
-
         # Setup axes and labels
         self.ax.set_xlabel('X')
         self.ax.set_ylabel('Y')
         self.ax.set_zlabel('Z')
-        self.ax.set_title('Satellite Position')
+        self.ax.set_title('Satellite Positions')
 
         # Set fixed limits
         self.ax.set_xlim([-1.5, 1.5])
@@ -44,15 +40,23 @@ class SphereVisualizer:
         self.ax.grid(True)
         plt.legend()
 
-        self.current_pos = [1, 0, 0]  # Initial position
+        # Dictionary to hold scatter points for multiple objects
+        self.points = {}
+        plt.ion()  # Enable interactive mode
 
-    def update_position(self, x, y, z):
-        """Update the 3D point's position."""
-        self.current_pos = [x, y, z]
+    def update_positions(self, positions):
+        """Update the positions of multiple points on the sphere."""
+        for key, pos in positions.items():
+            x, y, z = pos['x'], pos['y'], pos['z']
 
-        # Update point position in plot
-        self.point.set_data([x], [y])
-        self.point.set_3d_properties([z], 'z')
+            # Add a new point if it doesn't exist
+            if key not in self.points:
+                self.points[key], = self.ax.plot(
+                    [x], [y], [z], marker='o', markersize=10, label=key)
+            else:
+                # Update the existing point
+                self.points[key].set_data([x], [y])
+                self.points[key].set_3d_properties([z], 'z')
 
         # Refresh plot
         plt.pause(0.01)  # Pause briefly to allow for UI update
@@ -60,7 +64,6 @@ class SphereVisualizer:
 
 async def main():
     visualizer = SphereVisualizer()
-    plt.ion()  # Enable interactive mode
 
     print("Attempting to connect to server...")
     while True:
@@ -73,11 +76,7 @@ async def main():
                     print(f"Received: {coords}")  # Debug print
 
                     # Update visualization with new coordinates
-                    visualizer.update_position(
-                        coords['x'],
-                        coords['y'],
-                        coords['z']
-                    )
+                    visualizer.update_positions(coords)
 
                     await asyncio.sleep(0.01)  # Small delay
 

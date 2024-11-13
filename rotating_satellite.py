@@ -3,11 +3,13 @@ import websockets
 import math
 import json
 
-# Rotation parameters
-axis = (0, 1.2, 0)  # Rotation around the y-axis
-speed = 1  # Radians per second
-radius = 1.2  # Sphere radius
-initial_point = (radius, 0, 0)  # Start on the x-axis
+# Define parameters for multiple objects
+objects = {
+    "object1": {"axis": (0, 1, 0), "speed": 1, "radius": 1.2, "initial_point": (1, 0, 0)},
+    "object2": {"axis": (0, 1.2, 0), "speed": 1, "radius": 1.2, "initial_point": (1.2, 0, 0)},
+    "object3": {"axis": (1, 0, 0), "speed": 1, "radius": 1.2, "initial_point": (1.5, 0, 0)},
+    # Add more objects as needed
+}
 
 
 def rotate_point(point, axis, angle):
@@ -33,13 +35,28 @@ def rotate_point(point, axis, angle):
 
 
 async def send_coordinates(websocket):
-    """Send coordinates to the connected client."""
-    angle = 0
+    """Send coordinates for all objects to the connected client."""
+    angles = {obj: 0 for obj in objects}  # Initialize angles for all objects
+
     while True:
-        x, y, z = rotate_point(initial_point, axis, angle)
-        await websocket.send(json.dumps({"x": x, "y": y, "z": z}))
-        angle += speed * 0.05  # Increment angle based on speed and time step
-        await asyncio.sleep(0.1)  # 50ms update interval
+        result = {}
+        for obj_name, params in objects.items():
+            axis = params["axis"]
+            speed = params["speed"]
+            initial_point = params["initial_point"]
+
+            # Rotate point based on the current angle
+            x, y, z = rotate_point(initial_point, axis, angles[obj_name])
+            result[obj_name] = {"x": x, "y": y, "z": z}
+
+            # Increment angle for the next iteration
+            angles[obj_name] += speed * 0.05
+
+        # Send all object coordinates as a single JSON object
+        await websocket.send(json.dumps(result))
+
+        # Wait before sending the next update
+        await asyncio.sleep(0.1)  # 100ms update interval
 
 
 async def handler(websocket):
