@@ -9,7 +9,7 @@ resources/satellite_listings/
 resources/satellite_neighbours/
 src/keys/
 src/config/config.json
-config/
+# config/
 keys/
 
-logs
+# logs
