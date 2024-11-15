@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+.idea/
+.vscode/
+.venv/
+resources/satellite_listings/
+resources/satellite_neighbours/
+src/keys/
+src/config/config.json
+config/
+keys/
+
+logs

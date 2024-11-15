@@ -1,0 +1,12 @@
+Flask
+hypercorn
+requests
+python-dotenv
+typing-extensions
+click
+pytest
+pytest-cov
+black
+flake8
+pytz
+simplejson
