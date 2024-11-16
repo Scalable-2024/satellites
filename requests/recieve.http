@@ -1,0 +1,7 @@
+curl -X POST http://localhost:5001/receive \
+     -H "Content-Type: application/json" \
+     -d '{
+           "message": "Hello there",
+           "sender": "B",
+           "path": ["B", "C"]
+         }'

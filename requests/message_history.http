@@ -1,0 +1,3 @@
+# Check message history on destination
+curl http://localhost:5005/status | grep "received"  # For satellite E
+
