@@ -1,6 +1,8 @@
 from flask import Flask
 from typing import Dict, List
 import time
+import random
+from config.constants import MIN_LATENCY, MAX_LATENCY, MESSAGE_LOSS_PROBABILITY
 
 
 class Satellite:
@@ -20,17 +22,41 @@ class Satellite:
         self.ready = True
 
     def add_received_message(self, message: str, sender: str, path: List[str]):
+        # Simulate interference: Randomly drop messages
+        if random.random() < MESSAGE_LOSS_PROBABILITY:
+            print(f"[Interference] Message from {sender} lost due to interference.")
+            return  # Exit the method if the message is lost
+
+        # Simulate latency and jitter
+        latency = random.uniform(MIN_LATENCY, MAX_LATENCY)
+        time.sleep(latency)
+
+        # Log the received message
         self.messages_received.append({
             'message': message,
             'sender': sender,
             'timestamp': time.strftime('%Y-%m-%d %H:%M:%S'),
             'path': path
         })
+        print(f"[Received] Message from {sender}: '{message}' (Latency: {latency:.2f}s)")
 
     def add_sent_message(self, message: str, destination: str, path: List[str]):
+        # Simulate interference: Randomly drop messages
+        if random.random() < MESSAGE_LOSS_PROBABILITY:
+            print(f"[Interference] Message to {destination} lost due to interference.")
+            return  # Exit the method if the message is lost
+
+        # Simulate latency and jitter
+        latency = random.uniform(MIN_LATENCY, MAX_LATENCY)
+        print(f"[Latency] Simulated latency for sending message: {latency:.2f}s")  # Log latency
+        time.sleep(latency)
+
+        # Log the sent message
         self.messages_sent.append({
             'message': message,
             'destination': destination,
             'timestamp': time.strftime('%Y-%m-%d %H:%M:%S'),
             'path': path
         })
+        print(f"[Sent] Message to {destination}: '{message}' (Latency: {latency:.2f}s)")
+        

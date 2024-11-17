@@ -57,8 +57,7 @@ class NetworkManager:
 
         # Wait for satellite to become responsive
         if not self.wait_for_satellite(satellite_id):
-            print(f"Warning: Satellite {
-                  satellite_id} may not have started properly")
+            print(f"Warning: Satellite {satellite_id} may not have started properly")
 
     def start_network(self) -> None:
         """Start all satellites in the network"""
@@ -71,16 +70,14 @@ class NetworkManager:
         # Start satellites in sequence
         for satellite_id in self.network_map.keys():
             self.start_satellite(satellite_id)
-            print(f"Satellite {satellite_id} started on port {
-                  self.network_map[satellite_id]}")
+            print(f"Satellite {satellite_id} started on port {self.network_map[satellite_id]}")
             time.sleep(2)  # Wait between starts
 
         print("\nChecking network status...")
         all_running = True
         for satellite_id in self.network_map.keys():
             status = self.check_satellite(satellite_id)
-            print(f"Satellite {satellite_id}: {
-                  'RUNNING' if status else 'NOT RESPONDING'}")
+            print(f"Satellite {satellite_id}: {'RUNNING' if status else 'NOT RESPONDING'}")
             all_running = all_running and status
 
         if all_running:

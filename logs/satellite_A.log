@@ -1,0 +1,7 @@
+Starting satellite A on port 5001
+[Received] Message from B: 'Hello from B to A' (Latency: 1.20s)
+[Received] Message from B: 'Hello from B to A' (Latency: 2.14s)
+[Received] Message from B: 'Hello from B to A' (Latency: 2.91s)
+[Received] Message from B: 'Hello from B to A' (Latency: 1.54s)
+[Received] Message from B: 'Hello from B to A' (Latency: 1.63s)
+[Received] Message from B: 'Hello from B to A' (Latency: 1.64s)

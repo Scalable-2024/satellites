@@ -24,4 +24,4 @@ fi
 mkdir -p logs config
 
 # Start the satellite using Hypercorn
-python main.py --id $SATELLITE_ID --port $PORT --network $NETWORK_MAP
+python3 main.py --id $SATELLITE_ID --port $PORT --network $NETWORK_MAP

@@ -1,0 +1,9 @@
+Starting satellite C on port 5003
+[Sent] Message to B: 'Hello from E to A' (Latency: 2.45s)
+[Sent] Message to B: 'Hello from E to A' (Latency: 2.10s)
+[Sent] Message to B: 'Hello from E to A' (Latency: 1.96s)
+[Sent] Message to B: 'Hello from E to A' (Latency: 1.69s)
+[Sent] Message to D: 'Hello from E to A' (Latency: 1.16s)
+[Sent] Message to D: 'Hello from E to A' (Latency: 2.05s)
+[Sent] Message to D: 'Hello from E to A' (Latency: 2.27s)
+[Sent] Message to D: 'Hello from E to A' (Latency: 1.40s)

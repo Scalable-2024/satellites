@@ -27,8 +27,7 @@ class MessageController:
             try:
                 # Test if next hop is reachable
                 response = send_request(
-                    f'http://localhost:{
-                        self.satellite.network_map[next_hop]}/status',
+                    f'http://localhost:{self.satellite.network_map[next_hop]}/status',
                     'GET',
                     retries=1  # Quick check
                 )
@@ -45,8 +44,7 @@ class MessageController:
             destination = data.get('destination')
             current_path = data.get('path', [])
 
-            logger.info(f"Handling send request from {
-                        self.satellite.satellite_id} to {destination}")
+            logger.info(f"Handling send request from {self.satellite.satellite_id} to {destination}")
 
             if self.satellite.satellite_id in current_path:
                 return jsonify({
@@ -78,8 +76,7 @@ class MessageController:
             next_hop = next_path[0]
             try:
                 response = send_request(
-                    f'http://localhost:{
-                        self.satellite.network_map[next_hop]}/send',
+                    f'http://localhost:{self.satellite.network_map[next_hop]}/send',
                     'POST',
                     {
                         'message': message,

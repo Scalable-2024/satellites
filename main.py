@@ -57,8 +57,7 @@ def main(id: str, port: int, network: str):
         network_map = dict(pair.split(':') for pair in network.split(','))
         network_map = {k: int(v) for k, v in network_map.items()}
     except ValueError:
-        click.echo(
-            "Error: Network map should be in format 'A:5001,B:5002,C:5003'")
+        click.echo("Error: Network map should be in format 'A:5001,B:5002,C:5003'")
         return
 
     if id not in network_map:
@@ -66,8 +65,7 @@ def main(id: str, port: int, network: str):
         return
 
     if network_map[id] != port:
-        click.echo(f"Error: Port {
-                   port} doesn't match network map for satellite {id}")
+        click.echo(f"Error: Port {port} doesn't match network map for satellite {id}")
         return
 
     app = create_app(id, port, network_map)

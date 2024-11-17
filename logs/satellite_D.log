@@ -1,0 +1,5 @@
+Starting satellite D on port 5004
+[Received] Message from C: 'Hello from E to A' (Latency: 2.85s)
+[Interference] Message from C lost due to interference.
+[Received] Message from C: 'Hello from E to A' (Latency: 2.60s)
+[Received] Message from C: 'Hello from E to A' (Latency: 1.04s)

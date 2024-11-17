@@ -1,0 +1,14 @@
+[Interference] Request to http://localhost:5001/status dropped due to interference.
+Request failed after 1 attempts: None
+[Interference] Request to http://localhost:5001/send dropped due to interference.
+Starting satellite B on port 5002
+[Received] Message from C: 'Hello from E to A' (Latency: 3.00s)
+[Received] Message from C: 'Hello from E to A' (Latency: 1.50s)
+[Received] Message from C: 'Hello from E to A' (Latency: 1.86s)
+[Received] Message from C: 'Hello from E to A' (Latency: 2.37s)
+[Sent] Message to A: 'Hello from B to A' (Latency: 2.56s)
+[Sent] Message to A: 'Hello from B to A' (Latency: 2.11s)
+[Sent] Message to A: 'Hello from B to A' (Latency: 2.86s)
+[Sent] Message to A: 'Hello from B to A' (Latency: 2.95s)
+[Sent] Message to A: 'Hello from B to A' (Latency: 2.56s)
+[Sent] Message to A: 'Hello from B to A' (Latency: 1.81s)

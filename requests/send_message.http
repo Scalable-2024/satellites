@@ -1,4 +1,4 @@
 
-curl -X POST http://localhost:5002/send \
+curl -X POST http://localhost:5005/send \
      -H "Content-Type: application/json" \
-     -d '{"message": "Hello from B to A", "destination": "A", "path": []}'
+     -d '{"message": "Hello from E to A", "destination": "A", "path": []}'
